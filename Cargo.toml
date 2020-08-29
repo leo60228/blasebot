@@ -1,0 +1,17 @@
+[package]
+name = "blasebot"
+version = "0.1.0"
+authors = ["leo60228 <leo@60228.dev>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serenity = "0.9.0-rc.0"
+tokio = { version = "0.2.22", features = ["rt-threaded", "macros"] }
+dotenv = "0.15.0"
+anyhow = "1.0.32"
+blased = { path = "../blased" }
+edit-distance = "2.1.0"
+percent-encoding = "2.1.0"
+cached = "0.18.0"
