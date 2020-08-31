@@ -210,9 +210,9 @@ dependencies = [
 
 [[package]]
 name = "async-trait"
-version = "0.1.39"
+version = "0.1.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a973ceb857cff7575b825fe4c5fae998a797bc51be8bff06922e4762ac80ab46"
+checksum = "687c230d85c0a52504709705fc8a53e4a692b83a2184f03dae73e38e1e93a783"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -302,6 +302,7 @@ dependencies = [
  "cached",
  "dotenv",
  "edit-distance",
+ "futures",
  "percent-encoding",
  "serenity",
  "tokio",
@@ -310,6 +311,7 @@ dependencies = [
 [[package]]
 name = "blased"
 version = "0.1.0"
+source = "git+https://github.com/leo60228/blased.git#6dac7d203f470978e6f6df227614538f0f9420c9"
 dependencies = [
  "async-trait",
  "http-client 3.0.0",
@@ -1261,9 +1263,9 @@ dependencies = [
 
 [[package]]
 name = "libz-sys"
-version = "1.1.0"
+version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af67924b8dd885cccea261866c8ce5b74d239d272e154053ff927dae839f5ae9"
+checksum = "23b34178653005c1181711c333f0e5604a14a1b5115c814fd42304bdd16245e0"
 dependencies = [
  "cc",
  "libc",
