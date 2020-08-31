@@ -19,8 +19,10 @@ struct Handler;
 
 #[async_trait]
 impl EventHandler for Handler {
-    async fn ready(&self, _: Context, ready: Ready) {
+    async fn ready(&self, ctx: Context, ready: Ready) {
         println!("Connected as {}", ready.user.name);
+        ctx.set_presence(Some(Activity::listening("b!help")), OnlineStatus::Online)
+            .await;
     }
 
     async fn guild_create(&self, ctx: Context, guild: Guild, _is_new: bool) {
