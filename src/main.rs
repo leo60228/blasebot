@@ -77,7 +77,7 @@ async fn all_players(forbidden: bool) -> blased::Result<Vec<(Team, Player)>> {
         })
         .collect();
     players
-        .chunks(50)
+        .chunks(201)
         .map(|chunk| async move {
             let chunk = chunk.into_iter().cloned().collect::<Vec<_>>();
             let players = client
