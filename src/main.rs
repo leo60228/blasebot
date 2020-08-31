@@ -250,7 +250,19 @@ async fn player_imp(ctx: &Context, msg: &Message, args: Args, forbidden: bool) -
     let players = all_players(forbidden).await?;
     let (team, player) = players
         .into_iter()
-        .min_by_key(|x| edit_distance(&player_name, &x.1.name.to_ascii_lowercase()))
+        .min_by_key(|x| {
+            let full_name = x.1.name.to_ascii_lowercase();
+            let mut split = full_name.split(' ');
+            let first_name = split.next();
+            let last_name = split.next();
+            if let (Some(first_name), Some(last_name)) = (first_name, last_name) {
+                edit_distance(&player_name, &full_name)
+                    .min(edit_distance(&player_name, &first_name))
+                    .min(edit_distance(&player_name, &last_name))
+            } else {
+                edit_distance(&player_name, &full_name)
+            }
+        })
         .expect("got no players");
     println!("found player {}", player.name);
     let player_unused = !team.lineup.contains(&player.id) && !team.rotation.contains(&player.id);
